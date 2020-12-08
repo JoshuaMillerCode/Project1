@@ -1,3 +1,7 @@
+
+
+
+
 *,
 *::after,
 *::before {
@@ -6,6 +10,213 @@
     box-sizing: inherit;
 }
  
-body {
+html {
+    font-size: 10px;
+}
+
+body, #side-panel, #game-section {
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.5;
+    display: flex;
+}
+
+#side-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 25%;
+    background-image: linear-gradient(to top, #8F0005, #fffcf2);
+}
+
+#hint-comment-box {
+    border: 5px solid #252422;
+    border-radius: 20%;
+    box-shadow: -1rem -1rem 2rem black;
+    background-color: #fffcf2;
+    height: 20rem;
+    width:20rem;
+    font-size: 1.4rem;
+    margin-top: 5rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+#info-toggle {
+    display: none;
+}
+
+#info-modal-button {
+    background-color: #fffcf2;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 2px dashed #252422;
+    z-index: 2;
+}
+
+#info-background {
+    position: fixed;
+    bottom: 2rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: transparent;
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.5, 0, 0.02, 1);
+}
+#info-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50%; 
+    color: transparent;
+    z-index: 2;
+    border-radius: 20%;
+    padding: 10rem;
+} 
+
+#info-toggle:checked ~ #info-background {
+    background-color: #ccc5b9;
+    transform: scale(100);
+}
+
+#info-toggle:checked ~ #info-text {
+    transition-property: border, background-color ,color;
+    transition-delay: .6s;
+    color: #fffcf2;
+    background-color: #8F0005;
+    border: 3px solid #252422;
+}
+
+span {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#game-section {
+    height: 100vh;
+    width: 75%;
+    background-color: #252422;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title{
+    color: #fffcf2;
+    font-size: 5rem;
+}
+
+#gameboard {
+    background-color: #8F0005;
+    border: 5px solid  #04080F;
+    border-radius: 5%;
+    height: 85rem;
+    width: 90rem;
+    margin: 10rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.puzzle-item {
+    background-color: #250001;
+    box-shadow: -.5rem -1.5rem 2rem #250001;
+    height: 28rem;
+    width: 28rem;
+    border: 2px solid  #fffcf2;
+    margin-right: .5rem;
+
+}
+.top {
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+}
+.bottom{
+    margin-bottom: 2rem;
+}
+
+#puzzle-1 {
+    border-radius: 15% 0% 0% 0%;
+    background-image: url(../images/wires.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#puzzle-2 {
+
+}
+
+#puzzle-3 {
+    border-radius: 0 15% 0 0;
+    background-image: url(../images/back_and_forth.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#puzzle-4 {
+    border-radius: 0 0 0 15%;
+    background-image: url(../images/simon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#puzzle-5{
+    background-image: url(../images/number_pad.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#puzzle-6 {
+    border-radius: 0 0 15% 0;
+    background-image: url(../images/trivia.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.start-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: 100%;
+    width: 100%; 
+    background-color: #183446;
+    z-index: -10000;
+    padding: 10rem;
+    font-size: 9rem;
+    color: #fffcf2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.first-start-button {
+    width: 25rem;
+    height: 12rem;
+    background-image: url(../images/start_button.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #252422;
 }

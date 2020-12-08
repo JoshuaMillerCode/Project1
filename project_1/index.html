@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bomb Squad</title>
-    <link rel="stylesheet" type="text/css" href="../project_1/stylesheet/style.css">
+    <link rel="stylesheet" href="../project_1/stylesheet/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="../project_1/script/app.js"></script>
-</head>
-<body>
-    <aside>
+    </head>
+    <body>
+    <aside id='side-panel'>
         <div id='hint-comment-box'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint vero dolores saepe cumque, quae debitis placeat, nihil, explicabo dolor nam dicta! Dolorem consequatur quas recusandae maxime, facere vero laborum animi!</div>
         <button id='start-game'>Start</button>
         <button id='reset-game'>Reset</button>
         <input type="checkbox" id='info-toggle'></input>
-        <label for="info-toggle" id='info-modal-button'><span>&nbsp;</span></label>
+        <label for="info-toggle" id='info-modal-button'><span>i</span></label>
+        <div id='info-background'>&nbsp;</div>
+        <div id='info-text'><span id='info-title'> Instructions/Info.</span> </br>ipsum dolor sit amet consectetur adipisicing elit. Ipsam vitae eius adipisci perspiciatis fugit, nisi alias quae nemo maiores. Delectus temporibus tempore distinctio eos ab facere fugit quis recusandae beatae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nisi quibusdam fugiat aliquid sit dolorem accusantium voluptate eaque, ab possimus reiciendis. Consectetur nihil velit cum. Facere dolorem saepe sunt suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam necessitatibus eos sit eaque nisi assumenda autem aperiam corrupti, fugiat reiciendis quibusdam earum error iste nulla architecto dolore placeat rerum aliquam.
+        </div>
     </aside>
-    <main>
+    <main id='game-section'>
+        <h3 id='title'>Diffuse the Bomb!!</h3>
         <div id='gameboard'>
-            <div class='puzzle-item' id='puzzle-1'>
+            <div class='puzzle-item top'  id='puzzle-1'>
 
             </div>
-            <div class='puzzle-item' id='timer'>
+            <div class='puzzle-item top' id='time-modal'>
+                <p id='timer'></p>
+            </div>
+            <div class='puzzle-item top' id='puzzle-3'>
 
             </div>
-            <div class='puzzle-item' id='puzzle-3'>
+            <div class='puzzle-item bottom' id='puzzle-4'>
 
             </div>
-            <div class='puzzle-item' id='puzzle-4'>
+            <div class='puzzle-item bottom' id='puzzle-5'>
 
             </div>
-            <div class='puzzle-item' id='puzzle-5'>
-
-            </div>
-            <div class='puzzle-item' id='puzzle-6'>
+            <div class='puzzle-item bottom' id='puzzle-6'>
 
             </div>
         </div>
     </main>
-</body>
+    </body>
+    <modal class='start-page'>
+    Bomb Squad </br> A Game of Organized Panic 
+    <input type="checkbox" id='first-start'>&nbsp;</input>
+    <label for="first-start" class='first-start-button'>&nbsp;</label>
+    </modal>
+    <modal class='puzzle1-modal'>
+
+    </modal>
+    <modal class='puzzle2-modal'>
+        
+    </modal>
+    <modal class='puzzle3-modal'>
+        
+    </modal>
+    <modal class='puzzle4-modal'>
+        
+    </modal>
+    <modal class='puzzle5-modal'>
+        
+    </modal>
 </html>
