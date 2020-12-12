@@ -1,4 +1,5 @@
 //Cached DOM Nodes 
+const $body = $('body');
 //Start Page 
 const $startPage = $('.start-page');
 const $startButton = $('#first-start');
@@ -27,7 +28,8 @@ const $backForthClose = $('#close-back-forth-modal');
 const $simonClose = $('#close-simon-modal');
 const $numberClose = $('#close-number-modal');
 const $triviaClose = $('#close-trivia-modal');
-
+//Check is puzzles are passed
+const $doneButton = $('#done');
 const player = {
     level: 1
 }
@@ -79,25 +81,7 @@ const timer = () => {
     counter--;
     $timerDisplay.text(`:${counter}`);
 }
-$startGameButton.on('click', () => {
-    interval = setInterval(() => {
-        timer();
-        if(counter <= 0) {
-            clearInterval(interval);
-        }
-    }, 1000);
-})
 
-$resetGameButton.on('click', () => {
-    counter = 45;
-    $timerDisplay.text(`:${counter}`);
-    clearInterval(interval);
-    wire.hasPassed = false;
-    backAndForth.hasPassed = false;
-    simon.hasPassed = false;
-    number.hasPassed = false;
-    trivia.hasPassed =false;
-})
 ////////////////////////////////////////
 
 ////////////Puzzle Functions//////////
@@ -107,8 +91,7 @@ const $greenWire = $('#green');
 const $redWire = $('#red');
 const $blueWire = $('#blue');
 
-const wireGame = () => {
-    let level = player.level;
+const wireGame = (level) => {
     if(level === 1){
         $redWire.on('click', () => {
             wire.hasPassed = true;
@@ -135,7 +118,6 @@ const wireGame = () => {
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
             $wirePuzzle.css('background-image' , 'url(/images/checkmark.png)');
-
         })
         $blueWire.on('click', () => {
             $commentBox.text("Try Again. Blue and yellow make what color?");
@@ -160,8 +142,7 @@ const wireGame = () => {
 }
 //Components of the back and forth game
 const $movingCirle = $('#back-forth-box');
-const backAndForthGame = () => {
-    let level = player.level;
+const backAndForthGame = (level) => {
     if(level === 1){
         $movingCirle.on('click', () => {
             backAndForth.hasPassed = true;
@@ -172,7 +153,7 @@ const backAndForthGame = () => {
             $backAndForthPuzzle.css('background-image' , 'url(/images/checkmark.png)');
         })
     }else if(level === 2){
-        $movingCirle.css('animation-duration', '2.5s');
+        $movingCirle.css('animation-duration', '2s');
         $movingCirle.on('click', () => {
             backAndForth.hasPassed = true;
             $commentBox.text('Fast reflex!! Nice Work!! You passed this section')
@@ -182,7 +163,7 @@ const backAndForthGame = () => {
             $backAndForthPuzzle.css('background-image' , 'url(/images/checkmark.png)');
         })
     }else{
-        $movingCirle.css('animation-duration', '3s');
+        $movingCirle.css('animation-duration', '1s');
         $movingCirle.on('click', () => {
             backAndForth.hasPassed = true;
             $commentBox.text('Fast reflex!! Nice Work!! You passed this section')
@@ -207,16 +188,17 @@ const colorChagenSimon = () => {
     $simonYellow.css('background-color','black');
 }
 
-const simonGame = () => {
+const simonGame = (level) => {
     let redClicked = false;
     let greenClicked = false;
     let blueClicked = false;
     let yellowClicked = false;
 
-    let level = player.level;
+    
     $simonRed.on('click' , () => {
         redClicked = true;
         if(level === 1 && greenClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -227,6 +209,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         }else if (level === 2 && redClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -237,6 +220,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         }else if(level === 3 && greenClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -251,6 +235,7 @@ const simonGame = () => {
     $simonGreen.on('click' , () => {
         greenClicked = true;
         if(level === 1 && greenClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -261,6 +246,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         }else if (level === 2 && redClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -271,6 +257,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         }else if(level === 3 && greenClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -285,6 +272,7 @@ const simonGame = () => {
     $simonBlue.on('click' , () => {
         blueClicked = true;
         if(level === 1 && greenClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -295,6 +283,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         } else if (level === 2 && redClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -305,6 +294,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         }else if(level === 3 && greenClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -319,6 +309,7 @@ const simonGame = () => {
     $simonYellow.on('click' , () => {
         yellowClicked = true;
         if(level === 1 && greenClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -329,6 +320,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         } else if (level === 2 && redClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -339,6 +331,7 @@ const simonGame = () => {
             blueClicked = false;
             yellowClicked = false;
         }else if(level === 3 && greenClicked === true && yellowClicked === true && blueClicked === true){
+            simon.hasPassed = true;
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
@@ -382,31 +375,209 @@ const simonGame = () => {
     }
 }
 
-const numberGame = () => {
+//Components of numbers game
+const $numberdisplay = $('#numbers-display');
+const $submitButton = $('#submit-button');
+const numberGame = (level) => {
+    
+    const rightNumbers = [1234, 4321, 1111];
+    const selectedNumbers = [];
     $('.number').on('click', (event) => {
-        
+        if(selectedNumbers.length != 4){
+            let selectedbutton = $(event.target).text();
+            let buttonToNum = parseInt(selectedbutton);
+            selectedNumbers.push(buttonToNum);
+        }
+        //console.log(selectedNumbers);
+        let answer = selectedNumbers.reduce((acc, num) => {
+            return `${acc}${num}`;
+        })
+        $numberdisplay.val(answer);
+    }) 
+    $submitButton.on('click', () => {
+        let stringInDisplay = $numberdisplay.val()
+        let numberInDisplay = parseInt(stringInDisplay);
+        if(level === 1 &&  numberInDisplay === rightNumbers[0]){
+            number.hasPassed = true;
+            $numberModal.css('display', 'none');
+            $timerDisplay.css('z-index' , '0')
+                .css('transform', 'translateX(-0.1rem)');
+            $numberPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $commentBox.text('Nice work! You passed this section.');
+        }else if (level === 2 && numberInDisplay === rightNumbers[1]){
+            number.hasPassed = true;
+            $numberModal.css('display', 'none');
+            $timerDisplay.css('z-index' , '0')
+                .css('transform', 'translateX(-0.1rem)');
+            $numberPuzzle.css('background-image' , 'url(/images/checkmark.png')
+            $commentBox.text('Nice work! You passed this section.');
+        } else if(level === 3 && numberInDisplay === rightNumbers[2]){
+            number.hasPassed = true;
+            $numberModal.css('display', 'none');
+            $timerDisplay.css('z-index' , '0')
+                .css('transform', 'translateX(-0.1rem)');
+            $numberPuzzle.css('background-image' , 'url(/images/checkmark.png')
+            $commentBox.text('Nice work! You passed this section.');
+        }
     })
 }
 
-const triviaGame = () => {
+const $question = $('#question');
+const $typeAnswer = $('#answer');
+const $submitAnswer = $('#trivia-submit');
+const triviaGame = (level) => {
+    
     const triviaQuestions = [
         {
-            question: "alkjsdf",
-            answer: "sdsfd"
+            question: "What is the nickname of the U.S. state of Texas?",
+            answer: "the lonestar state"
         },
         {
-            question: "alkjsdf",
-            answer: "sdsfd"
+            question: "In which, U.S. state is Area 51 located?",
+            answer: "nevada"
         },
         {
-            question: "alkjsdf",
-            answer: "sdsfd"
+            question: "Who is on the $100 bill?",
+            answer: "benjamin franklin"
         }
     ]
+    if(level === 1){
+        $question.text(triviaQuestions[0].question);
+        $submitAnswer.on('click', () => {
+            let currentAnswer = $typeAnswer.val()
+            const fixedAnswer = currentAnswer.toLowerCase();
+            console.log(fixedAnswer);
+            if( fixedAnswer === triviaQuestions[0].answer){
+                trivia.hasPassed = true;
+                $triviaModal.css('display', 'none');
+                $timerDisplay.css('z-index' , '0')
+                .css('transform', 'translateX(-0.1rem)');
+                $triviaPuzzle.css('background-image' , 'url(/images/checkmark.png')
+                $commentBox.text('Nice work! You passed this section.');
+            } 
+        })
+    } else if (level === 2){
+        $question.text(triviaQuestions[1].question);
+        $submitAnswer.on('click', () => {
+            let currentAnswer = $typeAnswer.val()
+            const fixedAnswer = currentAnswer.toLowerCase();
+            console.log(fixedAnswer);
+            if( fixedAnswer === triviaQuestions[1].answer){
+                trivia.hasPassed = true;
+                $triviaModal.css('display', 'none');
+                $timerDisplay.css('z-index' , '0')
+                .css('transform', 'translateX(-0.1rem)');
+                $triviaPuzzle.css('background-image' , 'url(/images/checkmark.png')
+                $commentBox.text('Nice work! You passed this section.');
+            }
+        })
+    } else {
+        $question.text(triviaQuestions[2].question);
+        $submitAnswer.on('click', () => {
+            let currentAnswer = $typeAnswer.val()
+            const fixedAnswer = currentAnswer.toLowerCase();
+            console.log(fixedAnswer);
+            if( fixedAnswer === triviaQuestions[2].answer){
+                trivia.hasPassed = true;
+                $triviaModal.css('display', 'none');
+                $timerDisplay.css('z-index' , '0')
+                .css('transform', 'translateX(-0.1rem)');
+                $triviaPuzzle.css('background-image' , 'url(/images/checkmark.png')
+                $commentBox.text('Nice work! You passed this section.');
+            }
+        })
+    }
+}
+const hasPassedLevel = () => {
+    let levelPassed = false;
+    if (wire.hasPassed === true && backAndForth.hasPassed === true && simon.hasPassed === true && number.hasPassed === true && trivia.hasPassed === true){
+        levelPassed = true;
+    } else {
+        levelPassed = false;
+    }
+    return levelPassed;
+}
+const winScreen = () => {
+    $body.empty();
+    $body.css('background-image', 'url(../images/win_screen.jpeg')
+        .css('background-repeat' ,'no-repeat')
+        .css('background-size','cover')
+        .css('flex-direction', 'column');
+    const reloadWin = $('<button>').text('Start Over').appendTo($body);
+    reloadWin.on('click', () => {
+        location.reload();
+    })
+}
+const gameOverScreen = () => {
+    $body.empty();
+    const gameOverH1 = $('<h1>').addClass('game-over-text').text('GAME OVER!!!!!').appendTo($body);
+    $body.css('background-image', 'url(../images/real_nuke.jpeg')
+        .css('background-repeat' ,'no-repeat')
+        .css('background-size','cover');
 }
 
-$(() => {
-    startPageClose();
+const level1 = (level) => {
+        $startGameButton.on('click', () => {
+            level = player.level;
+            interval = setInterval(() => {
+                timer();
+                if(counter <= 0 && hasPassedLevel() === false) {
+                clearInterval(interval);
+                gameOverScreen();
+            }
+            }, 1000);
+            $startGameButton.css('display', 'none');
+            $resetGameButton.css('display' , 'block');
+            
+                wireGame(level);
+                backAndForthGame(level);
+                simonGame(level);
+                numberGame(level);
+                triviaGame(level);
+        })
+}
+const level2 = () => {
+    $startGameButton.on('click', () => {
+        level = player.level;
+        interval = setInterval(() => {
+            timer();
+            if(counter <= 0 && hasPassedLevel() === false) {
+            clearInterval(interval);
+            gameOverScreen();
+        }
+        }, 1000);
+        $startGameButton.css('display', 'none');
+        $resetGameButton.css('display' , 'block');
+        
+            wireGame(level);
+            backAndForthGame(level);
+            simonGame(level);
+            numberGame(level);
+            triviaGame(level);
+    })
+}
+const level3 = () => {
+    $startGameButton.on('click', () => {
+        level = player.level;
+        interval = setInterval(() => {
+            timer();
+            if(counter <= 0 && hasPassedLevel() === false) {
+            clearInterval(interval);
+            gameOverScreen();
+        }
+        }, 1000);
+        $startGameButton.css('display', 'none');
+        $resetGameButton.css('display' , 'block');
+        
+            wireGame(level);
+            backAndForthGame(level);
+            simonGame(level);
+            numberGame(level);
+            triviaGame(level);
+    })
+}
+const gameFunc = () => {
+    $resetGameButton.css('display','none')
     wire.openModal();
     wire.closeModal();
     backAndForth.openModal();
@@ -417,7 +588,103 @@ $(() => {
     number.closeModal();
     trivia.openModal();
     trivia.closeModal();
-    wireGame();
-    backAndForthGame();
-    simonGame();
+    if (player.level === 1) {
+        level1();
+    }else if (player.level === 2){
+        level2();
+    }else {
+        level3();
+    }
+    $resetGameButton.on('click', () => {
+        if (player.level === 1){
+            counter = 45;
+        }else if (player.level === 2){
+            counter = 60;
+        }else {
+            counter = 75;
+        }
+        $timerDisplay.text(`:${counter}`);
+        clearInterval(interval);
+        wire.hasPassed = false;
+        backAndForth.hasPassed = false;
+        simon.hasPassed = false;
+        number.hasPassed = false;
+        trivia.hasPassed =false;
+        $resetGameButton.css('display', 'none');
+        $startGameButton.css('display', 'block');
+        $wirePuzzle.css('background-image', 'url(../images/wires.jpeg)');
+        $backAndForthPuzzle.css('background-image', 'url(../images/back_and_forth.png)');
+        $simonPuzzle.css('background-image', 'url(../images/simon.png)');
+        $numberPuzzle.css('background-image', 'url(../images/number_pad.jpeg)');
+        $triviaPuzzle.css('background-image', 'url(../images/trivia.png)');
+    })
+    $doneButton.on('click', () => {
+        if (player.level === 1){
+            if(counter > 0 && hasPassedLevel() === true){
+                player.level = 2;
+                console.log(player.level);
+                counter = 60;
+                $('#level-number').text('2/3');
+                $timerDisplay.text(`:${counter}`);
+                clearInterval(interval);
+                wire.hasPassed = false;
+                backAndForth.hasPassed = false;
+                simon.hasPassed = false;
+                number.hasPassed = false;
+                trivia.hasPassed =false;
+                $resetGameButton.css('display', 'none');
+                $startGameButton.css('display', 'block');
+                $wirePuzzle.css('background-image', 'url(../images/wires.jpeg)');
+                $backAndForthPuzzle.css('background-image', 'url(../images/back_and_forth.png)');
+                $simonPuzzle.css('background-image', 'url(../images/simon.png)');
+                $numberPuzzle.css('background-image', 'url(../images/number_pad.jpeg)');
+                $triviaPuzzle.css('background-image', 'url(../images/trivia.png)');
+            } else {
+                gameOverScreen();
+                setTimeout(() => {
+                    location.reload();
+                }, 5000);
+
+            }        
+        } else if (player.level === 2){
+            if(counter > 0 && hasPassedLevel() === true){
+                player.level = 3;
+                console.log(player.level);
+                counter = 75;
+                $('#level-number').text('3/3');
+                $timerDisplay.text(`:${counter}`);
+                clearInterval(interval);
+                wire.hasPassed = false;
+                backAndForth.hasPassed = false;
+                simon.hasPassed = false;
+                number.hasPassed = false;
+                trivia.hasPassed =false;
+                $resetGameButton.css('display', 'none');
+                $startGameButton.css('display', 'block');
+                $wirePuzzle.css('background-image', 'url(../images/wires.jpeg)');
+                $backAndForthPuzzle.css('background-image', 'url(../images/back_and_forth.png)');
+                $simonPuzzle.css('background-image', 'url(../images/simon.png)');
+                $numberPuzzle.css('background-image', 'url(../images/number_pad.jpeg)');
+                $triviaPuzzle.css('background-image', 'url(../images/trivia.png)');
+            } else {
+                gameOverScreen();
+                setTimeout(() => {
+                    location.reload();
+                }, 5000);
+            }        
+        }else if (player.level === 3){
+            if(counter > 0 && hasPassedLevel() === true){
+                winScreen();
+            } else {
+                gameOverScreen();
+                setTimeout(() => {
+                    location.reload();
+                }, 5000);
+            }
+        }
+    })
+}
+$(() => {
+    startPageClose();
+    gameFunc();
 })

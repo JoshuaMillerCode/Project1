@@ -11,7 +11,7 @@
     <body>
     <aside id='side-panel'>
         <div id='hint-comment-box'>Radio: </br> Look here for hints and comments during the game.</div>
-        <div id='level-tracker'>Level: </br> <span id='level-number'>0/3  </span></div>
+        <div id='level-tracker'>Level: </br> <span id='level-number'>1/3  </span></div>
         <button id='start-game'>Start</button>
         <button id='reset-game'>Reset</button>
         <input type="checkbox" id='info-toggle'></input>
@@ -43,6 +43,7 @@
 
             </button>
         </div>
+        <button id='done'>Done</button>
     </main>
     </body>
     <modal class='start-page'>
@@ -85,27 +86,34 @@
     <modal class='puzzle4-modal'>
         <h3></h3>
         <div id='numberpad-container'>
-            <div id='numberpad-display'></div>
-            <input type='text' id='numbers-container'>
+            <input type='text' id='numbers-display'>
+            <div id='number-top'>
                 <button class='number' id='1'>1</button>
                 <button class='number' id='2'>2</button>
                 <button class='number' id='3'>3</button>
+            </div>
+            <div id='number-middle'>
                 <button class='number' id='4'>4</button>
                 <button class='number' id='5'>5</button>
                 <button class='number' id='6'>6</button>
+            </div>
+            <div id='number-bottom'>
                 <button class='number' id='7'>7</button>
                 <button class='number' id='8'>8</button>
                 <button class='number' id='9'>9</button>
-                <button class='number' id='0'>0</button>
+            </div>
+                <button class='number' id='num-0'>0</button>
+                <input type="submit" id='submit-button' >
             </div>
         </div>
         <button id='close-number-modal'>X</button>
     </modal>
     <modal class='puzzle5-modal'>
-        <h3></h3>
+        <h3>Answer the question to pass!</h3>
         <div id='trivia-container'>
             <h4 id='question'></h4>
             <input type="text" id="answer">
+            <input type="submit" id='trivia-submit'>
         </div>
         <button id='close-trivia-modal'>X</button>
     </modal>

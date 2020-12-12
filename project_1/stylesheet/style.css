@@ -366,6 +366,54 @@ span {
     background-color: black;
 }
 
+#numberpad-container{
+    height: 50rem;
+    width: 35rem;
+    border: .5rem solid black;
+    background-color: slategray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+#number-display {
+    text-align: center;
+}
+
+.number {
+    height: 7rem;
+    width: 7rem;
+    border: .2rem solid black;
+    margin: .1rem;
+}
+
+#number-top {
+    margin-top: 5rem;
+}
+
+#submit-button {
+    margin-top: 3rem;
+}
+
+#trivia-container {
+    height: 40rem;
+    width: 60rem;
+    border: .5rem solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#question {
+    height: 10rem;
+    width: 40rem;
+    border: .2rem solid black;
+    margin-bottom: 7rem;
+    text-align: center;
+}
 .start-page {
     position: absolute;
     top: 50%;
@@ -374,11 +422,14 @@ span {
     text-align: center;
     height: 100vh;
     width: 100vw; 
-    background-color: #183446;
+    background-image: url(../images/main_screen.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: 10000;
     padding: 10rem;
     font-size: 9rem;
-    color: #fffcf2;
+    color: #14213d;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -397,4 +448,16 @@ span {
     background-position: center;
     background-color: #252422;
     animation-timing-function: linear;
+}
+
+.game-over-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+    border: .3rem solid black;
+    color: black;
+    font-size: 8rem;
 }
