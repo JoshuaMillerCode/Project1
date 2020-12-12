@@ -379,7 +379,15 @@ const simonGame = (level) => {
 const $numberdisplay = $('#numbers-display');
 const $submitButton = $('#submit-button');
 const numberGame = (level) => {
-    
+    $numberPuzzle.on('click', () => {
+        if (player.level === 1){
+            $commentBox.text('Try the first four numbers')
+        }else if(player.level === 2){
+            $commentBox.text('Try the last code backwards');
+        }else {
+            $commentBox.text('What is 400 + 711?');
+        }
+    })
     const rightNumbers = [1234, 4321, 1111];
     const selectedNumbers = [];
     $('.number').on('click', (event) => {

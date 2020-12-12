@@ -461,3 +461,11 @@ span {
     color: black;
     font-size: 8rem;
 }
+
+#done {
+    margin-top: -8rem;
+    height: 4rem;
+    width: 10rem;
+    font-size: 2rem;
+    background-color: #8F0005;
+}
