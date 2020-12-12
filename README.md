@@ -1,6 +1,6 @@
 # App Title: Bomb Squad 
 
-### App Demo: <a href="https://joshuamillercode.github.io/Project1/index.html">Game Demo</a>
+### App Demo: <a href="https://joshuamillercode.github.io/Project1">Game Demo</a>
 
 ---
 
