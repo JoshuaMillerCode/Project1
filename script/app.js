@@ -99,7 +99,7 @@ const wireGame = (level) => {
             $wireModal.css('display' , 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $wirePuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $wirePuzzle.css('background-image' , 'url("../images/checkmark.png")');
         })
         $greenWire.on('click', () => {
             $commentBox.text("Try Again. Maybe try the color of the bomb?");
@@ -117,7 +117,7 @@ const wireGame = (level) => {
             $wireModal.css('display' , 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $wirePuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $wirePuzzle.css('background-image' , 'url(../images/checkmark.png)');
         })
         $blueWire.on('click', () => {
             $commentBox.text("Try Again. Blue and yellow make what color?");
@@ -135,7 +135,7 @@ const wireGame = (level) => {
             $wireModal.css('display' , 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $wirePuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $wirePuzzle.css('background-image' , 'url(../images/checkmark.png)');
 
         })
     }
@@ -150,7 +150,7 @@ const backAndForthGame = (level) => {
             $backAndForthModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $backAndForthPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $backAndForthPuzzle.css('background-image' , 'url(../images/checkmark.png)');
         })
     }else if(level === 2){
         $movingCirle.css('animation-duration', '2s');
@@ -160,7 +160,7 @@ const backAndForthGame = (level) => {
             $backAndForthModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $backAndForthPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $backAndForthPuzzle.css('background-image' , 'url(../images/checkmark.png)');
         })
     }else{
         $movingCirle.css('animation-duration', '1s');
@@ -170,7 +170,7 @@ const backAndForthGame = (level) => {
             $backAndForthModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $backAndForthPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $backAndForthPuzzle.css('background-image' , 'url(../images/checkmark.png)');
         })
     }
 }
@@ -202,7 +202,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -213,7 +213,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -224,7 +224,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -239,7 +239,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -250,7 +250,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -261,7 +261,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -276,7 +276,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -287,7 +287,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -298,7 +298,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -313,7 +313,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -324,7 +324,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -335,7 +335,7 @@ const simonGame = (level) => {
             $simonModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $simonPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $simonPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
             redClicked = false;
             greenClicked = false;
@@ -410,21 +410,21 @@ const numberGame = (level) => {
             $numberModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $numberPuzzle.css('background-image' , 'url(/images/checkmark.png)');
+            $numberPuzzle.css('background-image' , 'url(../images/checkmark.png)');
             $commentBox.text('Nice work! You passed this section.');
         }else if (level === 2 && numberInDisplay === rightNumbers[1]){
             number.hasPassed = true;
             $numberModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $numberPuzzle.css('background-image' , 'url(/images/checkmark.png')
+            $numberPuzzle.css('background-image' , 'url(../images/checkmark.png')
             $commentBox.text('Nice work! You passed this section.');
         } else if(level === 3 && numberInDisplay === rightNumbers[2]){
             number.hasPassed = true;
             $numberModal.css('display', 'none');
             $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-            $numberPuzzle.css('background-image' , 'url(/images/checkmark.png')
+            $numberPuzzle.css('background-image' , 'url(../images/checkmark.png')
             $commentBox.text('Nice work! You passed this section.');
         }
     })
@@ -460,7 +460,7 @@ const triviaGame = (level) => {
                 $triviaModal.css('display', 'none');
                 $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-                $triviaPuzzle.css('background-image' , 'url(/images/checkmark.png')
+                $triviaPuzzle.css('background-image' , 'url(../images/checkmark.png')
                 $commentBox.text('Nice work! You passed this section.');
             } 
         })
@@ -475,7 +475,7 @@ const triviaGame = (level) => {
                 $triviaModal.css('display', 'none');
                 $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-                $triviaPuzzle.css('background-image' , 'url(/images/checkmark.png')
+                $triviaPuzzle.css('background-image' , 'url(../images/checkmark.png')
                 $commentBox.text('Nice work! You passed this section.');
             }
         })
@@ -490,7 +490,7 @@ const triviaGame = (level) => {
                 $triviaModal.css('display', 'none');
                 $timerDisplay.css('z-index' , '0')
                 .css('transform', 'translateX(-0.1rem)');
-                $triviaPuzzle.css('background-image' , 'url(/images/checkmark.png')
+                $triviaPuzzle.css('background-image' , 'url(../images/checkmark.png')
                 $commentBox.text('Nice work! You passed this section.');
             }
         })
@@ -624,7 +624,7 @@ const gameFunc = () => {
         $backAndForthPuzzle.css('background-image', 'url(../images/back_and_forth.png)');
         $simonPuzzle.css('background-image', 'url(../images/simon.png)');
         $numberPuzzle.css('background-image', 'url(../images/number_pad.jpeg)');
-        $triviaPuzzle.css('background-image', 'url(../images/trivia.png)');
+        $triviaPuzzle.css('background-image', 'url("../images/trivia.png")');
     })
     $doneButton.on('click', () => {
         if (player.level === 1){
